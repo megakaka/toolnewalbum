@@ -13,3 +13,5 @@
 
 /.idea
 *.iml
+*.css
+*.css.map

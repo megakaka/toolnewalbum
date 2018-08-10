@@ -1,4 +1,5 @@
 import * as React from 'react';
+import Logo from '../images/tool.png'
 import {getDifference} from "../utils/timeUtils";
 
 
@@ -13,7 +14,7 @@ export default class BasePage extends React.Component {
 
     public render() {
         return <div>
-            <h1>Tool new album</h1>
+            <img src={Logo}/>
             <br/>
             <h3>{this.state.message}</h3>
             <h4>Since last album</h4>
