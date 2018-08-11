@@ -1,12 +1,14 @@
 import * as React from 'react';
 import Logo from '../images/tool.png'
 import {getDifference} from "../utils/timeUtils";
+import * as httpService from "../services/httpService"
 
 
 export default class BasePage extends React.Component {
     public state = {message: getDifference()}
 
     public componentDidMount() {
+        httpService.hello();
         setInterval(() => {
             this.setState({message: getDifference()});
         }, 1000);
