@@ -6,7 +6,7 @@ import (
 	"net/http"
 )
 
-var port = "8080"
+var port = "6767"
 
 func main() {
 	http.HandleFunc("/api/", apiHandler)
@@ -15,11 +15,16 @@ func main() {
 }
 
 func apiHandler(w http.ResponseWriter, r *http.Request) {
-	fmt.Println("request received")
+	logRequest(r)
 	enableCors(&w)
 	fmt.Fprintf(w, "hello")
 }
 
 func enableCors(w *http.ResponseWriter) {
 	(*w).Header().Set("Access-Control-Allow-Origin", "*")
+}
+
+func logRequest(request *http.Request) {
+	fmt.Print("request received:")
+	fmt.Println("ip" + request.RemoteAddr)
 }

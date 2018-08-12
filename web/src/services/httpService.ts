@@ -1,8 +1,8 @@
-import Axios from 'axios'
+import {http} from "../App";
 
 export const hello = () => {
-    console.log('hello entered');
-    Axios.get("http://localhost:8080/api/1").then((response) => {
+    console.log(process.env);
+    http.get("/1").then((response) => {
         console.log(response);
     })
 };

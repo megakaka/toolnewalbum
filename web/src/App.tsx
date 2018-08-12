@@ -1,9 +1,20 @@
 import * as React from 'react';
 import './App.css';
+import axios from 'axios'
 
 import BasePage from "./pages/BasePage";
+// import {serverUrl} from "./utils/domain";
+
+export const http = axios.create({
+    baseURL: 'http://localhost:6767/api'
+    // baseURL: serverUrl
+});
 
 class App extends React.Component {
+
+    public constructor(props: any) {
+        super(props);
+    }
 
     public render() {
         return (
