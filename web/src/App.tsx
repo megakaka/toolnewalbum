@@ -1,13 +1,12 @@
 import * as React from 'react';
 import './App.css';
-import axios from 'axios'
+import Axios from 'axios'
 
 import BasePage from "./pages/BasePage";
-// import {serverUrl} from "./utils/domain";
+import {serverUrl} from "./utils/domain";
 
-export const http = axios.create({
-    baseURL: 'http://localhost:6767/api'
-    // baseURL: serverUrl
+export const http = Axios.create({
+    baseURL: serverUrl
 });
 
 class App extends React.Component {
