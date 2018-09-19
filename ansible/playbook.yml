@@ -1,0 +1,31 @@
+---
+- hosts: dev
+  remote_user: "{{ user }}"
+  become: true
+  become_method: sudo
+  tasks:
+#    - name: update linux
+#      shell: apt-get update
+#
+#    - name: install docker
+#      shell: apt-get install docker
+#
+#    - name: install docker-compose
+#      shell: apt-get install docker-compose
+#
+#    - name: pull docker postgres
+#      shell: docker pull postgres
+#
+#    - name: create docker dir
+#      shell: mkdir /tmp/docker
+
+    - name: copy docker-compose
+      copy:
+        src: docker/database.yml
+        dest: /tmp/docker/database.yml
+
+    - name: stop docker containers
+      shell: docker-compose -f /tmp/docker/database.yml down
+
+    - name: start docker db container
+      shell: docker-compose -f /tmp/docker/database.yml up -d

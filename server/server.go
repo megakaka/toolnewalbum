@@ -25,6 +25,7 @@ func enableCors(w *http.ResponseWriter) {
 }
 
 func logRequest(request *http.Request) {
+	fmt.Println(request)
 	fmt.Print("request received:")
-	fmt.Println("ip" + request.RemoteAddr)
+	fmt.Println("ip" + request.Referer())
 }

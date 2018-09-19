@@ -1,0 +1,14 @@
+version: '3.3'
+services:
+  postgres:
+    image: postgres
+    container_name: tool-db
+    ports:
+      - 5432:5432
+    restart: always
+    environment:
+      POSTGRES_DB: tool-db
+      POSTGRES_USER: tool-db
+      POSTGRES_PASSWORD: tool-db
+    volumes:
+      - '/var/lib/postgresql/data:/var/lib/postgresql/data'
